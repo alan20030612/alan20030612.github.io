@@ -1,0 +1,36 @@
+<style>
+    body {
+        color: aliceblue;
+        background-color: black;
+    }
+</style>
+
+<h1>Welcome {{user.username}}</h1>
+<a href="/">回首頁</a>
+<hr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>標題</th>
+            <th>作者</th>
+            <th>時間</th>
+            <th>連結</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in data %}
+        <tr>
+            <td>{{item.header}}</td>
+            <td>{{item.author}}</td>
+            <td>{{item.date}}</td>
+            <td>
+                <a href="{{item.url}}" target="_blank">{{item.url}}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+            
+            
+            

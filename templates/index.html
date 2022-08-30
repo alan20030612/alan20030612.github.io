@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <style>
+      body {
+        background-color: black;
+        color: aliceblue;
+      }
+    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Alan Huang">
+        <meta name="description" content="website for web scraping">
+        <link rel="icon" href="{% static 'html.jpg' %}" type="image/x-icon">    
+        <title>WebScraping</title>
+    </head>
+    <body>
+        <a href="login">Login</a>&nbsp;&nbsp;&nbsp;
+        <a href="logout">Logout</a>&nbsp;&nbsp;&nbsp;
+        <a href="register">Signup</a>&nbsp;&nbsp;&nbsp;
+        <hr>
+        {% if user.is_authenticated %}
+        <h1>Hello {{user.username}} !</h1>
+        {% else %}
+        <h1>Hello user !</h1>
+        {% endif %}
+        <hr>
+        <h2>Develope by</h2>
+        <p><em>Alan Huang</em></p>
+        <hr>
+        <h2>How does this work?</h2>
+        <p>This is a web page that can scrap data from ptt hardwaresale</p>
+        <hr>
+        <h2>Test session:</h2>
+        {% if user.is_authenticated %}
+        <form action="web_scc" method="post">
+          {% csrf_token %}
+          <input type="number" placeholder="input the pages you want to scrap for" name="pages">
+          <input type="submit">
+        </form>
+        {% else %}
+        <p>login for more...</p>
+        {% endif %}
+    </body>
+</html>

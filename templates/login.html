@@ -1,0 +1,24 @@
+<h1>Login</h1>
+<style>
+    body {
+        color: aliceblue;
+        background-color: black;
+    }
+    h4 {
+        color: red;
+    }
+</style>
+
+{% for message in messages %}
+<h4>{{message}}</h4>
+{% endfor %}
+
+<form action="login" method="post">
+    {% csrf_token %}
+    <p>Username</p>
+    <input type="text" name="username">
+    <p>Password</p>
+    <input type="password" name="password">
+    <p></p>
+    <input type="submit">
+</form>
